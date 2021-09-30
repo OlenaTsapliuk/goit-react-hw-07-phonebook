@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/selectors';
-import * as contactActions from '../../redux/action';
+import operations from '../../redux/operation';
 import s from "./ContactForm.module.css";
 
 function ContactForm() {
@@ -12,7 +12,7 @@ function ContactForm() {
   const dispatch = useDispatch();
   
   const onSubmit = (name, number) =>
-    dispatch(contactActions.addContact(name, number));
+    dispatch(operations.addContact(name, number));
   
   const handleChange = (e) => {
     const { name, value } = e.currentTarget;
@@ -81,12 +81,14 @@ function ContactForm() {
     );
   }
 
+export default ContactForm;
+
 
 // ContactForm.propTypes = {
 //   onSubmit: PropTypes.func.isRequired,
   
 // };
-export default ContactForm;
+
 
 // const mapStateToProps = state => ({
 //   contacts: state.contacts.items,

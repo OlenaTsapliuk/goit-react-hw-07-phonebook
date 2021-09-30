@@ -2,13 +2,19 @@ import shortid from "shortid";
 import { useSelector,useDispatch} from "react-redux";
 import PropTypes from "prop-types";
 import s from "./ContactList.module.css";
-import * as contactActions from '../../redux/action';
+import operation from '../../redux/operation';
 import { getVisibleContacts } from '../../redux/selectors';
+import { useEffect } from 'react';
 
 export default function ContactList() {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
-  const onDeleteContact = (id) => dispatch(contactActions.deleteContact(id));
+  
+  useEffect(() => {
+    dispatch(operation.fetchContacts());
+  }, [dispatch]);
+  
+  const onDeleteContact = (id) => dispatch(operation.deleteContact(id));
   return (
     <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
