@@ -9,7 +9,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
-
+import logger from 'redux-logger';
 // import storage from 'redux-persist/lib/storage'
 
 import contactReducer from './reducer';
@@ -21,6 +21,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+   logger,
 ];
 // const persistConfig = {
 //   key: 'contacts',

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import {
     fetchContactRequest,
     fetchContactSuccess,
@@ -15,11 +16,11 @@ axios.defaults.baseURL = 'http://localhost:3004';
 
 const fetchContacts = () => async dispatch => {
   dispatch(fetchContactRequest());
-  try {
+    try {
     const { data } = await axios.get('/contacts');
     dispatch(fetchContactSuccess(data));
   } catch (error) {
-    dispatch(fetchContactError(error));
+      dispatch(fetchContactError(new Error("Not found")));
   }
 };
 
