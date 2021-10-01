@@ -1,7 +1,12 @@
+// {
+//   "contacts": [ {
+//       "name": "OLena",
+//       "number": "0930868704",
+//       "id": 1
+//     }]
+// }
 {
-  "contacts": [ {
-      "name": "OLena",
-      "number": "0930868704",
-      "id": 1
-    }]
+  "contacts":[
+    
+  ]
 }
